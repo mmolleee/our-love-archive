@@ -7,7 +7,7 @@ const memories = [
     date: "2026. 03. 24",
     title: "우리의 첫 만남",
     text: "어색하게 웃던 그날, 이상하게 오래 기억에 남았어.",
-    place: "압구정의 와인바",
+    place: "압구정의 와인바 SAV Seoul",
     image:
       "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl34NbXNEpIQ3CZpv8z7g3PKL8W9uZngUg9v_a5gX3oj85ldp-mV2KhqEDytaFMyMfJkO_T6RlGpXaqU_wdgkfoct3LmDlj26VeBvE49JXyQpZzTbUbv-BrZ3tPrrOLRUtHePML=s680-w680-h510-rw",
   },
@@ -264,11 +264,13 @@ export default function Home() {
           </h2>
 
           <p>
-            너와 함께라서 아무렇지 않은 하루도 특별해져. 
-            같은 마음으로, 같은 미래를 바라보고 있어서 너무나 행복해. 
-            매일 매일 너와 함께 하루를 쌓아가고 싶어. 
-                      </p>
-
+  너와 함께라서 아무렇지 않은 하루도 특별해져.
+  <br />
+  같은 마음으로, 같은 미래를 바라보고 있어서 너무나 행복해.
+  <br />
+  매일 매일 너와 함께 하루를 쌓아가고 싶어.
+</p>
+          
           <button
             className="text-button"
             onClick={() => setOpen(!open)}
