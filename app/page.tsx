@@ -235,7 +235,7 @@ export default function Home() {
       <section className="letter">
         <div className="letter-top">
           <span>FROM, YOUR PERSON</span>
-          <span>FOR, MY FAVORITE</span>
+          <span>FOR, MY FAVOURITE</span>
         </div>
 
         <div className="letter-body">
@@ -291,7 +291,7 @@ export default function Home() {
             <span className="envelope-flap" />
             <span className="envelope-heart">♡</span>
             <span className="envelope-label">
-              FOR MY FAVORITE PERSON
+              FOR MY FAVOURITE PERSON
             </span>
           </button>
 
