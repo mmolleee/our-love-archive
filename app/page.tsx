@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const memories = [
-  { date: "2023. 06. 17", title: "우리의 첫 만남", text: "어색하게 웃던 그날, 이상하게 오래 기억에 남았어.", place: "성수의 작은 카페", image: "https://images.unsplash.com/photo-1518057111178-44a106bad636?auto=format&fit=crop&w=900&q=85" },
-  { date: "2023. 08. 05", title: "첫 번째 여름", text: "뜨거운 햇살보다 네가 더 눈부셨던 날.", place: "양평, 강가에서", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" },
-  { date: "2024. 02. 14", title: "우리의 첫 발렌타인", text: "서툴지만 진심을 담아 준비했던 작은 선물.", place: "집 앞 골목길", image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=85" },
+  { date: "2026. 03. 24", title: "우리의 첫 만남", text: "어색하게 웃던 그날, 이상하게 오래 기억에 남았어.", place: "압구정의 와인바", image: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl34NbXNEpIQ3CZpv8z7g3PKL8W9uZngUg9v_a5gX3oj85ldp-mV2KhqEDytaFMyMfJkO_T6RlGpXaqU_wdgkfoct3LmDlj26VeBvE49JXyQpZzTbUbv-BrZ3tPrrOLRUtHePML=s680-w680-h510-rw" },
+  { date: "2026. 03. 26", title: "우리의 두번째 만남", text: "어느날 보다 가장 떨렸던 날.", place: "한남동, 뱅샤에서", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" },
+ ,
 ];
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
       <section id="timeline" className="section"><div className="section-head"><p className="eyebrow">Chapter one · memories</p><h2>우리의 시간은<br /><em>이렇게 시작됐어.</em></h2><p className="side-note">날짜를 따라 천천히 걸어보자.<br />우리에게는 아직 담아둘 장면이 많으니까.</p></div>
         <div className="timeline">{memories.map((item, i) => <article className={`memory ${i % 2 ? "reverse" : ""}`} key={item.date}><div className="photo-wrap"><img src={item.image} alt={item.title} /><span className="photo-no">0{i + 1}</span></div><div className="memory-copy"><p className="date">{item.date}</p><h3>{item.title}</h3><p>{item.text}</p><span className="place">⌖ {item.place}</span></div></article>)}</div>
       </section>
-      <section className="letter"><div className="letter-top"><span>FROM, YOUR PERSON</span><span>FOR, MY FAVORITE</span></div><div className="letter-body"><p className="eyebrow">A note for you</p><h2>사랑한다는 말보다<br /><em>더 좋은 말이 있을까?</em></h2><p>너와 함께라서 아무렇지 않은 하루도 특별해져. 앞으로도 거창한 약속보다는 오늘처럼 맛있는 걸 먹고, 많이 웃고, 서로의 이야기를 들어주고 싶어.</p><button className="text-button" onClick={() => setOpen(!open)}>{open ? "편지 닫기 ↑" : "끝까지 읽기 ↓"}</button>{open && <div className="hidden-note">우리, 앞으로도 지금처럼 천천히 오래 사랑하자.<br />내가 많이 아끼고, 많이 좋아해. ♡</div>}</div></section>
+      <section className="letter"><div className="letter-top"><span>FROM, YOUR PERSON</span><span>FOR, MY FAVORITE</span></div><div className="letter-body"><p className="eyebrow">A note for you</p><h2>사랑한다는 말보다<br /><em>더 좋은 말이 있을까?</em></h2><p>너와 함께라서 아무렇지 않은 하루도 특별해져. 앞으로도 거창한 약속보다는 오늘처럼 맛있는 걸 먹고, 많이 웃고, 서로의 이야기를 들어주고 싶어.</p><button className="text-button" onClick={() => setOpen(!open)}>{open ? "편지 닫기 ↑" : "끝까지 읽기 ↓"}</button>{open && <div className="hidden-note">우리, 앞으로도 지금처럼 천천히 오래 사랑하자.<br />내가 많이 아끼고, 많이 사랑해. ♡</div>}</div></section>
       <section className="today"><p className="eyebrow">Today&apos;s little message</p><h2>{message}</h2><button className={`heart ${liked ? "active" : ""}`} onClick={() => { setLiked(!liked); setMessage(messages[(messages.indexOf(message) + 1) % messages.length]); }}>{liked ? "♥" : "♡"}</button><p className="hint">마음을 눌러봐</p></section>
       <footer><span>OURS / ARCHIVE</span><span>made with all my heart · 2026</span><span>♡</span></footer>
     </main>
