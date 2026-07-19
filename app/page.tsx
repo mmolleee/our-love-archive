@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const memories = [
   { date: "2026. 03. 24", title: "우리의 첫 만남", text: "어색하게 웃던 그날, 이상하게 오래 기억에 남았어.", place: "압구정의 와인바", image: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl34NbXNEpIQ3CZpv8z7g3PKL8W9uZngUg9v_a5gX3oj85ldp-mV2KhqEDytaFMyMfJkO_T6RlGpXaqU_wdgkfoct3LmDlj26VeBvE49JXyQpZzTbUbv-BrZ3tPrrOLRUtHePML=s680-w680-h510-rw" },
-  { date: "2026. 03. 26", title: "우리의 두번째 만남", text: "어느날 보다 가장 떨렸던 날.", place: "한남동, 뱅샤에서", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" },
+  { date: "2026. 03. 26", title: "우리의 두번째 만남", text: "어느날 보다 가장 떨렸던 날.", place: "한남동, 뱅샤에서", image: "https://ugc-images.catchtable.co.kr/shop/manager/images/3d01888fe9f541d2b462930d94877bc9" },
  ,
 ];
 
