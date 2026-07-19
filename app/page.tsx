@@ -7,7 +7,7 @@ const memories = [
     date: "2026. 03. 24",
     title: "우리의 첫 만남",
     text: "어색하게 웃던 그날, 이상하게 오래 기억에 남았어.",
-    place: "압구정 사브 서울",
+    place: "압구정의 와인바",
     image:
       "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl34NbXNEpIQ3CZpv8z7g3PKL8W9uZngUg9v_a5gX3oj85ldp-mV2KhqEDytaFMyMfJkO_T6RlGpXaqU_wdgkfoct3LmDlj26VeBvE49JXyQpZzTbUbv-BrZ3tPrrOLRUtHePML=s680-w680-h510-rw",
   },
@@ -24,21 +24,15 @@ const memories = [
 export default function Home() {
   const [password, setPassword] = useState("");
   const [isUnlocked, setIsUnlocked] = useState(false);
+  const [showArchive, setShowArchive] = useState(false);
+  const [birthdayOpen, setBirthdayOpen] = useState(false);
   const [liked, setLiked] = useState(false);
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("오늘도 네 편이야.");
-  const [birthdayOpen, setBirthdayOpen] = useState(false);
+
   const correctPassword = "0324";
-   const unlockPage = () => {
-    if (password === correctPassword) {
-      setIsUnlocked(true);
-    } else {
-      alert("비밀번호가 맞지 않아.");
-    }
-  };
 
   const startDate = new Date("2026-03-24T00:00:00");
-
   const daysTogether =
     Math.floor(
       (Date.now() - startDate.getTime()) / (1000 * 60 * 60 * 24),
@@ -50,6 +44,14 @@ export default function Home() {
     "우리의 다음 장면도 기대돼.",
   ];
 
+  const unlockPage = () => {
+    if (password === correctPassword) {
+      setIsUnlocked(true);
+    } else {
+      alert("비밀번호가 맞지 않아.");
+    }
+  };
+
   const changeMessage = () => {
     const currentIndex = messages.indexOf(message);
     const nextIndex = (currentIndex + 1) % messages.length;
@@ -58,7 +60,7 @@ export default function Home() {
     setMessage(messages[nextIndex]);
   };
 
- if (!isUnlocked) {
+  if (!isUnlocked) {
     return (
       <main className="lock-screen">
         <div className="lock-card">
@@ -93,7 +95,40 @@ export default function Home() {
       </main>
     );
   }
-  
+
+  if (!showArchive) {
+    return (
+      <main className="letter-intro-screen">
+        <div className="letter-intro-card">
+          <p className="eyebrow">A special letter for you</p>
+
+          <div className="intro-envelope">
+            <span className="intro-envelope-heart">♡</span>
+          </div>
+
+          <h1>
+            생일 편지
+            <br />
+            <em>열어볼래?</em>
+          </h1>
+
+          <p>
+            오늘은 너를 위해
+            <br />
+            특별히 준비한 편지가 있어.
+          </p>
+
+          <button
+            className="button"
+            onClick={() => setShowArchive(true)}
+          >
+            편지 읽기 <span>↗</span>
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main>
       <nav className="nav">
@@ -151,7 +186,7 @@ export default function Home() {
         </div>
 
         <div>
-          <strong>{memories.length.toString().padStart(2, "0")}</strong>
+          <strong>{String(memories.length).padStart(2, "0")}</strong>
           <span>우리의 이야기</span>
         </div>
       </section>
@@ -235,47 +270,45 @@ export default function Home() {
         </div>
       </section>
 
-<section className="birthday-letter" id="birthday">
-  <div className="birthday-inner">
-    <p className="eyebrow">
-      A birthday letter · just for you
-    </p>
+      <section className="birthday-letter" id="birthday">
+        <div className="birthday-inner">
+          <p className="eyebrow">A birthday letter · just for you</p>
 
-    <h2>
-      오늘은 네가 태어난
-      <br />
-      <em>가장 특별한 날</em>
-    </h2>
+          <h2>
+            오늘은 네가 태어난
+            <br />
+            <em>가장 특별한 날</em>
+          </h2>
 
-    <p className="birthday-subtitle">
-      봉투를 눌러서 내 마음을 열어봐.
-    </p>
+          <p className="birthday-subtitle">
+            봉투를 눌러서 내 마음을 열어봐.
+          </p>
 
-    <button
-      className={`envelope ${birthdayOpen ? "opened" : ""}`}
-      onClick={() => setBirthdayOpen(!birthdayOpen)}
-    >
-      <span className="envelope-flap" />
-      <span className="envelope-heart">♡</span>
-      <span className="envelope-label">
-        FOR MY FAVORITE PERSON
-      </span>
-    </button>
+          <button
+            className={`envelope ${birthdayOpen ? "opened" : ""}`}
+            onClick={() => setBirthdayOpen(!birthdayOpen)}
+          >
+            <span className="envelope-flap" />
+            <span className="envelope-heart">♡</span>
+            <span className="envelope-label">
+              FOR MY FAVORITE PERSON
+            </span>
+          </button>
 
-    {birthdayOpen && (
-      <div className="birthday-message">
-        <p>생일 정말 축하해.</p>
-        <p>네가 태어나줘서, 그리고 내 곁에 와줘서 고마워.</p>
-        <p>
-          오늘 하루는 누구보다 행복했으면 좋겠고,
-          앞으로 맞이할 모든 생일도 내가 함께하고 싶어.
-        </p>
-        <strong>많이 사랑해. ♡</strong>
-      </div>
-    )}
-  </div>
-</section>
-      
+          {birthdayOpen && (
+            <div className="birthday-message">
+              <p>생일 정말 축하해.</p>
+              <p>네가 태어나줘서, 그리고 내 곁에 와줘서 고마워.</p>
+              <p>
+                오늘 하루는 누구보다 행복했으면 좋겠고,
+                앞으로 맞이할 모든 생일도 내가 함께하고 싶어.
+              </p>
+              <strong>많이 사랑해. ♡</strong>
+            </div>
+          )}
+        </div>
+      </section>
+
       <section className="today">
         <p className="eyebrow">Today&apos;s little message</p>
 
@@ -284,7 +317,6 @@ export default function Home() {
         <button
           className={`heart ${liked ? "active" : ""}`}
           onClick={changeMessage}
-          aria-label="오늘의 메시지 바꾸기"
         >
           {liked ? "♥" : "♡"}
         </button>
