@@ -7,7 +7,7 @@ const memories = [
     date: "2026. 03. 24",
     title: "우리의 첫 만남",
     text: "어색하게 웃던 그날, 이상하게 오래 기억에 남았어.",
-    place: "압구정의 와인바",
+    place: "압구정 사브 서울",
     image:
       "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWl34NbXNEpIQ3CZpv8z7g3PKL8W9uZngUg9v_a5gX3oj85ldp-mV2KhqEDytaFMyMfJkO_T6RlGpXaqU_wdgkfoct3LmDlj26VeBvE49JXyQpZzTbUbv-BrZ3tPrrOLRUtHePML=s680-w680-h510-rw",
   },
