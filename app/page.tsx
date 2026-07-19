@@ -27,6 +27,7 @@ export default function Home() {
   const [liked, setLiked] = useState(false);
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("오늘도 네 편이야.");
+  const [birthdayOpen, setBirthdayOpen] = useState(false);
   const correctPassword = "0324";
    const unlockPage = () => {
     if (password === correctPassword) {
@@ -234,6 +235,47 @@ export default function Home() {
         </div>
       </section>
 
+<section className="birthday-letter" id="birthday">
+  <div className="birthday-inner">
+    <p className="eyebrow">
+      A birthday letter · just for you
+    </p>
+
+    <h2>
+      오늘은 네가 태어난
+      <br />
+      <em>가장 특별한 날</em>
+    </h2>
+
+    <p className="birthday-subtitle">
+      봉투를 눌러서 내 마음을 열어봐.
+    </p>
+
+    <button
+      className={`envelope ${birthdayOpen ? "opened" : ""}`}
+      onClick={() => setBirthdayOpen(!birthdayOpen)}
+    >
+      <span className="envelope-flap" />
+      <span className="envelope-heart">♡</span>
+      <span className="envelope-label">
+        FOR MY FAVORITE PERSON
+      </span>
+    </button>
+
+    {birthdayOpen && (
+      <div className="birthday-message">
+        <p>생일 정말 축하해.</p>
+        <p>네가 태어나줘서, 그리고 내 곁에 와줘서 고마워.</p>
+        <p>
+          오늘 하루는 누구보다 행복했으면 좋겠고,
+          앞으로 맞이할 모든 생일도 내가 함께하고 싶어.
+        </p>
+        <strong>많이 사랑해. ♡</strong>
+      </div>
+    )}
+  </div>
+</section>
+      
       <section className="today">
         <p className="eyebrow">Today&apos;s little message</p>
 
