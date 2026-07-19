@@ -22,9 +22,19 @@ const memories = [
 ];
 
 export default function Home() {
+  const [password, setPassword] = useState("");
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const [liked, setLiked] = useState(false);
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("오늘도 네 편이야.");
+  const correctPassword = "0324";
+   const unlockPage = () => {
+    if (password === correctPassword) {
+      setIsUnlocked(true);
+    } else {
+      alert("비밀번호가 맞지 않아.");
+    }
+  };
 
   const startDate = new Date("2026-03-24T00:00:00");
 
@@ -47,6 +57,42 @@ export default function Home() {
     setMessage(messages[nextIndex]);
   };
 
+ if (!isUnlocked) {
+    return (
+      <main className="lock-screen">
+        <div className="lock-card">
+          <div className="lock-heart">♡</div>
+
+          <p className="eyebrow">OURS / PRIVATE ARCHIVE</p>
+
+          <h1>
+            우리의 작은 우주
+            <br />
+            <em>비밀번호를 입력해줘</em>
+          </h1>
+
+          <input
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                unlockPage();
+              }
+            }}
+          />
+
+          <button className="button" onClick={unlockPage}>
+            들어가기 <span>↗</span>
+          </button>
+
+          <p className="lock-hint">우리만 아는 숫자를 입력해줘</p>
+        </div>
+      </main>
+    );
+  }
+  
   return (
     <main>
       <nav className="nav">
