@@ -250,7 +250,7 @@ export default function Home() {
 
       <section className="letter">
         <div className="letter-top">
-          <span>FROM, YOUR PERSON</span>
+          <span>FROM, YOUR MAN</span>
           <span>FOR, MY FAVOURITE</span>
         </div>
 
